@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			Andrew's Facebook Cleaner
 // @include			https://www.facebook.com/*/allactivity*
-// @require			http://code.jquery.com/jquery-1.7.1.min.js
+// @require			https://code.jquery.com/jquery-1.7.1.min.js
 // @grant			none
 // @version			1.4.1
 // @description		Purge and/or Hide all your activity on Facebook to date.
@@ -202,14 +202,14 @@ function purgeselect() {
     if (currentmode == 'delete') word = 'Delete';
     else if (currentmode == 'unvote') word = 'Unvote';
     else if (currentmode == 'unlike') word = 'Unlike';
-    else word = 'Report/Remove Tag';
+    else word = 'Report/Remove tag';
 	$("#fbTimelineLogBody div._5shk:not(.fbprocessed_purge):first").addClass('fbprocessed_generic fbprocessed_purge');
     if ($("div.uiLayer:visible span._54nh:contains('"+word+"')").length) {
         $("div.uiLayer:visible span._54nh:contains('"+word+"')").click();
         if (currentmode == 'delete') setTimeout(purgeconfirm, 500);
         else if (currentmode == 'unlike') purgeproceed();
         else if (currentmode == 'unvote') purgeproceed();
-        else setTimeout(confirmremovetag, 500);
+        else setTimeout(confirmremovetag, 2000);
     } else {
         console.log('> No available options found, skipping.');
         andrewhandler('purge');

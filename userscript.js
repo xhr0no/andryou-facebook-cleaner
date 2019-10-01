@@ -136,6 +136,12 @@ function andrewhandler(mode) {
 						} else if (contents.indexOf(fbname+' was tagged ') != -1) {
 							currentmode = 'tag';
 							purgeiconclick();
+						} else if (contents.indexOf(fbname+' poked ') != -1) {
+							currentmode = 'delete';
+							purgeiconclick();
+						} else if (contents.indexOf(fbname+' played ') != -1) {
+							currentmode = 'delete';
+							purgeiconclick();
 						} else {
 							//console.log('> Not a relevant activity, skipping.');
 							$("#fbTimelineLogBody div._5shk:not(.fbprocessed_"+mode+"):first").addClass('fbprocessed_generic fbprocessed_'+mode);
